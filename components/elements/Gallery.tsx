@@ -4,10 +4,10 @@ import { Post } from '../../interfaces'
 import PostComponent from './Post'
 
 type PostProps = {
-    post: Post
+    data: Post[] | Post,
 }
 
-export default function GalleryComponent({ data }: PostProps[]) {
+export default function GalleryComponent({ data }: PostProps) {
     return (
         // <h2 className='text-2xl font-semibold'>{post.title}</h2>
         // <li>

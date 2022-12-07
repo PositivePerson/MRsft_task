@@ -12,21 +12,8 @@ import SearchBar from '../components/elements/searchBar'
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Index() {
-  // const { data, error } = useSWR('/api/people', fetcher)
-  const { data, error } = useSWR('/api/posts', fetcher)
-  const [filtered, setFiltered] = useState('')
   const [input, setInput] = useState('Li')
-
-  useEffect(() => {
-    console.log("data: ", data);
-    console.log("error: ", error);
-
-    if (data) {
-      const filterData = data.filter(el => el.title.startsWith(input));
-      console.log("filterData: ", filterData)
-      setFiltered(filterData)
-    }
-  }, [input, data, error])
+  const { data, error } = useSWR(`/api/posts/${input}`, fetcher)
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -42,7 +29,7 @@ export default function Index() {
           </>
         ))} */}
       <div className="py-16">
-        <GalleryComponent data={filtered} />
+        <GalleryComponent data={data} />
       </div>
       <Pagination />
     </div>
