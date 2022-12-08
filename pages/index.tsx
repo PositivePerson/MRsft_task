@@ -3,6 +3,7 @@ import useSWR from 'swr'
 // import PersonComponent from '../components/elements/Person'
 import PostComponent from '../components/elements/Post'
 import GalleryComponent from '../components/elements/Gallery'
+import ModalComponent from '../components/elements/Modal'
 // import { Person } from '../interfaces'
 import { Post } from '../interfaces'
 
@@ -30,6 +31,8 @@ export default function Index() {
   return (
     <div className='text-center py-16 h-full flex-col justify-between items-between'>
       <h1 className='font-semibold text-5xl mb-16'>Emersoft Blog</h1>
+
+      <ModalComponent />
       <SearchBar handleSearch={handleSearch} />
       {/* {data.map((p: Post) => (
           <>
