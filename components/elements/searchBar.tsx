@@ -5,7 +5,6 @@ type SearchBarProps = {
 }
 
 const SearchBar = ({ handleSearch }: SearchBarProps) => {
-    // const SearchBar = ({ handleSearch }: SearchBarProps) => {
     const [input, setInput] = useState('')
 
     return (
