@@ -6,7 +6,7 @@ type PaginationProps = {
     isLastPage: boolean
 }
 
-const Pagination = ({ page, setPage, isLastPage }: PaginationProps) => {
+const PaginationComponent = ({ page, setPage, isLastPage }: PaginationProps) => {
     const showPrevious = () => {
         setPage((page) => page - 1)
     }
@@ -36,4 +36,4 @@ const Pagination = ({ page, setPage, isLastPage }: PaginationProps) => {
     )
 }
 
-export default Pagination
+export default PaginationComponent

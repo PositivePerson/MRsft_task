@@ -3,7 +3,7 @@ import useSWR from 'swr'
 import GalleryComponent from '../components/elements/Gallery'
 import ModalComponent from '../components/elements/Modal'
 
-import Pagination from '../components/elements/pagination'
+import PaginationComponent from '../components/elements/pagination'
 import SearchBar from '../components/elements/searchBar'
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
@@ -41,7 +41,7 @@ export default function Index() {
       </div>
 
       {/* isLastPage: There is a small chance if(data.length % resultsPerPage ===0) then we will see blank page as last page */}
-      <Pagination page={page} setPage={setPage} isLastPage={data.length < resultsPerPage} />
+      <PaginationComponent page={page} setPage={setPage} isLastPage={data.length < resultsPerPage} />
     </div>
   )
 }
