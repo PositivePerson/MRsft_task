@@ -15,9 +15,10 @@ export default function Index() {
   const [input, setInput] = useState('Li')
   const [page, setPage] = useState(1)
 
+  const resultsPerPage = 6
+
   //                              /api/posts/category/startPagination/endPagination/title
-  // const { data, error } = useSWR(`/api/posts/${input}/-1/0/2`, fetcher)
-  const { data, error } = useSWR(`/api/posts/0/${(page - 1) * 6}/${page * 6}/${input}`, fetcher)
+  const { data, error } = useSWR(`/api/posts/0/${(page - 1) * resultsPerPage}/${page * resultsPerPage}/${input}`, fetcher)
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -35,7 +36,9 @@ export default function Index() {
       <div className="py-16">
         <GalleryComponent data={data} />
       </div>
-      <Pagination page={page} setPage={setPage} />
+
+      {/* isLastPage: There is a small chance if(data.length % resultsPerPage ===0) then we will see blank page as last page */}
+      <Pagination page={page} setPage={setPage} isLastPage={data.length < resultsPerPage} />
     </div>
   )
 }
