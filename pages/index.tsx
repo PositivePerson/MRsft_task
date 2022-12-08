@@ -12,13 +12,17 @@ import SearchBar from '../components/elements/searchBar'
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Index() {
-  const [input, setInput] = useState('Li')
+  const [searchValue, setSearchValue] = useState('')
   const [page, setPage] = useState(1)
 
   const resultsPerPage = 6
 
   //                              /api/posts/category/startPagination/endPagination/title
-  const { data, error } = useSWR(`/api/posts/0/${(page - 1) * resultsPerPage}/${page * resultsPerPage}/${input}`, fetcher)
+  const { data, error } = useSWR(`/api/posts/0/${(page - 1) * resultsPerPage}/${page * resultsPerPage}/${searchValue}`, fetcher)
+
+  const handleSearch = (text: string) => {
+    setSearchValue(text)
+  }
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
@@ -26,7 +30,7 @@ export default function Index() {
   return (
     <div className='text-center py-16 h-full flex-col justify-between items-between'>
       <h1 className='font-semibold text-5xl mb-16'>Emersoft Blog</h1>
-      <SearchBar input={input} setInput={setInput} />
+      <SearchBar handleSearch={handleSearch} />
       {/* {data.map((p: Post) => (
           <>
             <span className='text-3xl'>Next person: </span>
