@@ -2,11 +2,11 @@ import { Post } from '../../interfaces'
 
 import PostComponent from './Post'
 
-type PostProps = {
+type GalleryProps = {
     data: Post[],
 }
 
-export default function GalleryComponent({ data }: PostProps) {
+export default function GalleryComponent({ data }: GalleryProps) {
     return (
         <section className="overflow-hidden text-gray-700 pb-8">
             <div className="container px-5 py-2 mx-auto lg:px-32">

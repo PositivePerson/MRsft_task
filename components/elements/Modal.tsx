@@ -1,12 +1,12 @@
 import { Category } from '../../interfaces'
 
-type CategoryProps = {
+type ModalProps = {
     categories: Category[],
     handleCategoryClick: (id: number) => void,
     pickedCategory: number
 }
 
-export default function ModalComponent({ categories, handleCategoryClick, pickedCategory }: CategoryProps) {
+export default function ModalComponent({ categories, handleCategoryClick, pickedCategory }: ModalProps) {
     return (
         <div className="modal z-10 fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
             id="exampleModal" tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
