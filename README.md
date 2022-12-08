@@ -1,27 +1,13 @@
-# Basic API routes example
+# Technology
+  - NextJS
+  - tailwindcss
 
-Next.js ships with [API routes](https://nextjs.org/docs/api-routes/introduction) which provides an easy solution to build your own `API`. This example shows how to create multiple `API` endpoints with serverless functions, which can execute independently.
+## Task Description
+Simple Blog page with SSR.
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/api-routes)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/api-routes&project-name=api-routes&repository-name=api-routes)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example api-routes api-routes-app
-```
-
-```bash
-yarn create next-app --example api-routes api-routes-app
-```
-
-```bash
-pnpm create next-app --example api-routes api-routes-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+#### Create simple API endpoints to fetch, search and filter blog posts
+  - Simple pagination - button `next` and `prev` page
+  - Search blog posts by title
+  - Simple Filter by Category
+#### Simple page to display blog post - title, image, excerpt, list of categories.
+#### Use JSON file data with posts.
