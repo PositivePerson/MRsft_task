@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Post } from '../../interfaces'
 import * as blog from '../../blog.json'
 
@@ -8,13 +7,6 @@ type PostProps = {
 
 export default function PostComponent({ post }: PostProps) {
     return (
-        // <h2 className='text-2xl font-semibold'>{post.title}</h2>
-        // <li>
-        //     <Link href="/post/[title]" as={`/post/${post.title}`}>
-        //         {post.title}
-        //     </Link>
-        // </li>
-
         <div className="flex justify-center">
             <div className="rounded-lg shadow-lg bg-white max-w-sm">
                 <img className="rounded-t-lg" src={post.imageUrl} alt={post.slug} />
@@ -23,7 +15,6 @@ export default function PostComponent({ post }: PostProps) {
                     <p className="text-gray-700 text-base mb-4">
                         {post.excerpt}
                     </p>
-                    {/* <button type="button" className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button> */}
                     <div className='flex gap-2'>
                         {post.categories.map(el => (
                             <span className="inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-semibold bg-blue-600 text-white rounded">

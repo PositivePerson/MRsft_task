@@ -1,11 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import useSWR from 'swr'
-// import PersonComponent from '../components/elements/Person'
-import PostComponent from '../components/elements/Post'
 import GalleryComponent from '../components/elements/Gallery'
 import ModalComponent from '../components/elements/Modal'
-// import { Person } from '../interfaces'
-import { Post } from '../interfaces'
 
 import Pagination from '../components/elements/pagination'
 import SearchBar from '../components/elements/searchBar'
@@ -40,12 +36,6 @@ export default function Index() {
 
       <ModalComponent categories={categories} handleCategoryClick={handleCategoryClick} pickedCategory={pickedCategory} />
       <SearchBar handleSearch={handleSearch} />
-      {/* {data.map((p: Post) => (
-          <>
-            <span className='text-3xl'>Next person: </span>
-            <PostComponent key={p.id} post={p} />
-          </>
-        ))} */}
       <div className="py-16">
         <GalleryComponent data={data} />
       </div>
