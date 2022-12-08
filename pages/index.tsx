@@ -13,7 +13,9 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Index() {
   const [input, setInput] = useState('Li')
-  const { data, error } = useSWR(`/api/posts/${input}`, fetcher)
+
+  //                              /api/posts/title/category/startPagination/endPagination
+  const { data, error } = useSWR(`/api/posts/${input}/3/0/6`, fetcher)
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
