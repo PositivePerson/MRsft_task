@@ -17,9 +17,7 @@ export default function PostComponent({ post }: PostProps) {
 
         <div className="flex justify-center">
             <div className="rounded-lg shadow-lg bg-white max-w-sm">
-                <a href="#!">
-                    <img className="rounded-t-lg" src={post.imageUrl} alt={post.slug} />
-                </a>
+                <img className="rounded-t-lg" src={post.imageUrl} alt={post.slug} />
                 <div className="p-6 text-left">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">{post.title}</h5>
                     <p className="text-gray-700 text-base mb-4">
