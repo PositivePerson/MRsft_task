@@ -13,15 +13,17 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Index() {
   const [input, setInput] = useState('Li')
+  const [page, setPage] = useState(1)
 
-  //                              /api/posts/title/category/startPagination/endPagination
-  const { data, error } = useSWR(`/api/posts/${input}/3/0/6`, fetcher)
+  //                              /api/posts/category/startPagination/endPagination/title
+  // const { data, error } = useSWR(`/api/posts/${input}/-1/0/2`, fetcher)
+  const { data, error } = useSWR(`/api/posts/0/${(page - 1) * 6}/${page * 6}/${input}`, fetcher)
 
   if (error) return <div>Failed to load</div>
   if (!data) return <div>Loading...</div>
 
   return (
-    <div className='text-center pt-16 h-full flex-col justify-between items-between'>
+    <div className='text-center py-16 h-full flex-col justify-between items-between'>
       <h1 className='font-semibold text-5xl mb-16'>Emersoft Blog</h1>
       <SearchBar input={input} setInput={setInput} />
       {/* {data.map((p: Post) => (
@@ -33,7 +35,7 @@ export default function Index() {
       <div className="py-16">
         <GalleryComponent data={data} />
       </div>
-      <Pagination />
+      <Pagination page={page} setPage={setPage} />
     </div>
   )
 }
